@@ -2,7 +2,7 @@ using System;
 
 namespace PlayerManager2
 {
-    public class Player
+    public class Player : IComparable<Player>
     {
         public string Name { get; }
         public int Score { get; set; }
@@ -10,6 +10,11 @@ namespace PlayerManager2
         public Player (string name, int score){
             Name = name;
             Score = score;
+        }
+
+        public int CompareTo (Player other)
+        {
+            return other.Score - Score;
         }
     }
 }

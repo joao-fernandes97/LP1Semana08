@@ -86,9 +86,10 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </summary>
         private void ShowMenu()
         {
-            // /////////////////// //
-            // COMPLETE ME PLEASE! //
-            // /////////////////// //
+            Console.Write("1 -> Add Player\n"+
+                          "2 -> List Players\n"+
+                          "3 -> List Players with a Minimum Score\n"+
+                          "4 -> QUIT\n"); 
         }
 
         /// <summary>
@@ -96,9 +97,13 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </summary>
         private void InsertPlayer()
         {
-            // /////////////////// //
-            // COMPLETE ME PLEASE! //
-            // /////////////////// //
+            string name;
+            int score;
+            Console.Write("Insert Name:");
+            name = Console.ReadLine();
+            Console.Write("Input the players score:");
+            score = int.Parse(Console.ReadLine());
+            playerList.Add(new Player(name, score));
         }
 
         /// <summary>
@@ -112,9 +117,10 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </param>
         private static void ListPlayers(IEnumerable<Player> playersToList)
         {
-            // /////////////////// //
-            // COMPLETE ME PLEASE! //
-            // /////////////////// //
+            foreach(Player player in playersToList)
+            {
+                Console.WriteLine($"{player.Name}:{player.Score}");
+            }
         }
 
         /// <summary>
@@ -122,9 +128,11 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </summary>
         private void ListPlayersWithScoreGreaterThan()
         {
-            // /////////////////// //
-            // COMPLETE ME PLEASE! //
-            // /////////////////// //
+            int minScore;
+            Console.Write("Input minimum score:");
+            minScore = int.Parse(Console.ReadLine());
+            ListPlayers(GetPlayersWithScoreGreaterThan(minScore));
+            
         }
 
         /// <summary>

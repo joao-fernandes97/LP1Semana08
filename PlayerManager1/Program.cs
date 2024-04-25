@@ -144,9 +144,13 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </returns>
         private IEnumerable<Player> GetPlayersWithScoreGreaterThan(int minScore)
         {
-            // /////////////////// //
-            // COMPLETE ME PLEASE! //
-            // /////////////////// //
+            List<Player> players = new List<Player>();
+            foreach (Player player in playerList)
+            {
+                if(player.Score>minScore) players.Add(player);
+            }
+
+            return players;
         }
     }
 }

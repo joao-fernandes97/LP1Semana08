@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PlayerManager2 // >>> Change to PlayerManager2 for exercise 4 <<< //
+namespace PlayerManager3 // >>> Change to PlayerManager2 for exercise 4 <<< //
 {
     /// <summary>
     /// The player listing program.
@@ -48,6 +48,8 @@ namespace PlayerManager2 // >>> Change to PlayerManager2 for exercise 4 <<< //
             // Main program loop
             do
             {
+                //sort the player List
+                playerList.Sort();
                 // Show menu and get user option
                 ShowMenu();
                 option = Console.ReadLine();

@@ -4,7 +4,7 @@ namespace AnimalKingdom
 {
     public class Bat : Animal, IMammal
     {
-        public int NumberOfNipples { get => 4}
+        public int NumberOfNipples { get; } = 4;
 
         public override string Sound()
         {

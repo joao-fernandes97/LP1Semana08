@@ -12,6 +12,8 @@ namespace PlayerManager4 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// The list of all players.
         /// </summary>
         private List<Player> playerList;
+        IComparer<Player> alphabetically = new CompareByName(true);
+        IComparer<Player> unalphabetically = new CompareByName(false);
 
         /// <summary>
         /// Program begins here.
@@ -47,9 +49,7 @@ namespace PlayerManager4 // >>> Change to PlayerManager2 for exercise 4 <<< //
 
             // Main program loop
             do
-            {
-                //sort the player List
-                playerList.Sort();
+            {   
                 // Show menu and get user option
                 ShowMenu();
                 option = Console.ReadLine();
@@ -61,9 +61,11 @@ namespace PlayerManager4 // >>> Change to PlayerManager2 for exercise 4 <<< //
                         InsertPlayer();
                         break;
                     case "2":
+                        SortPlayers();
                         ListPlayers(playerList);
                         break;
                     case "3":
+                        SortPlayers();
                         ListPlayersWithScoreGreaterThan();
                         break;
                     case "4":
@@ -92,6 +94,33 @@ namespace PlayerManager4 // >>> Change to PlayerManager2 for exercise 4 <<< //
                           "2 -> List Players\n"+
                           "3 -> List Players with a Minimum Score\n"+
                           "4 -> QUIT\n"); 
+        }
+
+        private void SortMenu()
+        {
+            Console.Write("1 -> Sort by descending Score\n"+
+                          "2 -> Sort alphabetically\n"+
+                          "3 -> Sort unalphabetically\n");
+        }
+
+        private void SortPlayers()
+        {
+            SortMenu();
+            switch (Console.ReadLine())
+            {
+                case "1":
+                    playerList.Sort();
+                    break;
+                case "2":
+                    playerList.Sort(alphabetically);
+                    break;
+                case "3":
+                    playerList.Sort(unalphabetically);
+                    break;
+                default:
+                    Console.Error.WriteLine("\n>>> Unknown option! <<<\n");
+                    break;
+            }
         }
 
         /// <summary>
